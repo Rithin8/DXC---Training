@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #b1{
+        display: none;
+      }  
+    </style>
+</head>
+<body>
+    <p id="p1"></p>
+ 
+    <button id="b1">Login please</button>
+    <script>
+       
+       /*  f1();
+        console.log("before function creation value of a : "+a);
+       
+        function f1(){
+             a=5; // variable without any var let and const (it becomes global)
+         }
+        console.log("value of a : "+a);
+       //  closure : variable of a outer function can be accessible in inner function
+       
+         function outer()
+        {
+            var b=10;
+            function inner()
+            {
+                 console.log("value of b : "+b);
+                 
+            }
+            return inner();
+        }
+        outer();*/
+ 
+//**************************************************************************************
+ 
+ 
+        // setTimeout (delay a task) and setInterval (execute task repetedly)
+ 
+        console.log("start");
+        setTimeout(()=>{
+            console.log("executed after 5 seconds");
+            const bt=document.getElementById("b1");
+            bt.style.display='inline-block';
+            bt.style.color="red";
+
+
+                    clearInterval(intervalId);
+               
+        },5000);
+        console.log("End");
+        var count=1;
+        const intervalId=setInterval(()=>{
+                console.log("count : "+count);
+                count++;
+               
+        },1000);
+ 
+ 
+// Asunchronus
+//promise
+let myPromise=new Promise(function(resolve,reject)
+{
+    let x=3;
+    if(x%2==0){
+        resolve("even");
+    }
+    else{
+        reject("odd");
+    }
+   } );
+   myPromise.then(
+    function(value){f1(value); console.log(value);},
+    function(error){f1(error); console.log(error);}
+   );
+   function f1(msg){
+    document.getElementById("p1").innerHTML=msg;
+   }
+ 
+    </script>
+</body>
+</html>
+ 

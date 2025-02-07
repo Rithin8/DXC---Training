@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Named function
+      //  function greet(name){
+        //    return "Hello "+name;
+           // return "Hello, ${name}"
+         //console.log("Named function called : "+greet("Ashwini"));
+        //}
+        
+        
+    /*   //2. Anonymous Function
+        var greet2=function(name){
+            return "Hello "+name;
+        }
+        console.log("Anonymous function called : "+greet2("Yogeshwari"));
+      //3. Arrow functions
+        const greet3=(name)=>"Hello "+name;
+        console.log("Arrow function called : "+greet3("Ajay"));*/
+        //4. IIFE Immediately Invoked function expressions
+      //  (function (){console.log("IIFE called");  })();
+
+        //5. constructor function
+     /*   function Person(name, city){
+            this.name=name;
+            this.city=city;
+        }
+        const Sayed=new Person ("Sayed","Mumbai");
+        console.log(Sayed);*/
+ 
+       //6.callback function (It takes function as a parameter)
+        function callback1(f1){
+            const name="Prince";
+            f1(name);
+ 
+        }
+        callback1((name)=>console.log("Hello Callback function called : "+name));
+        //7. Recursive function
+        function fact(n){
+            return n===0?1:n*fact(n-1);
+        }
+        console.log(fact(8)); //5*4*3*2*1 */
+        
+    </script>
+</body>
+</html>

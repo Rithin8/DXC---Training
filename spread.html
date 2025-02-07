@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Detail </title>
+    <button onclick="UpdatedEmployee()">Updated Employee Data</button>
+    <button onclick="MaxSalaryEmployee()">Employee with Maximum Salary</button>
+    <button onclick="mergeObjects()">Merge</button>
+</head>
+<body>
+    <div id="output"></div>
+    <div id="updatedEmployeeOutput"></div>
+    <div id="maxSalaryEmployeeOutput"></div>
+    
+    <script>
+        // Incrementing Salary
+        const employee1 = { name: "John Doe", post: "Developer", salary: 50000 };
+        const employee2 = { name: "Jane Smith", post: "Manager", salary: 70000 };
+
+        function incrementSalary(employees, increment) {
+            return employees.map(emp => {
+                if (emp.post === "Developer") {
+                    return { ...emp, salary: emp.salary + increment };
+                }
+                return emp;
+            });
+        }
+
+        // Finding maximum salary
+        function MaxSalary(employees) {
+            const maxSalaryEmployee = employees.find(emp => emp.salary === Math.max(...employees.map(emp => emp.salary)));
+            return maxSalaryEmployee;
+        }
+
+        function UpdatedEmployee() {
+            const updatedEmployee = incrementSalary([employee1, employee2], 5000);
+            document.getElementById("updatedEmployeeOutput").innerText = "Updated Employee Data: " + JSON.stringify(updatedEmployee);
+        }
+
+        function MaxSalaryEmployee() {
+            const updatedEmployee = incrementSalary([employee1, employee2], 5000);
+            const maxSalaryEmployee = MaxSalary(updatedEmployee);
+            document.getElementById("maxSalaryEmployeeOutput").innerText = "Employee with the highest salary: " + JSON.stringify(maxSalaryEmployee);
+        }
+
+        // Merge
+        const empPune = { name: "Rithin", post: "Developer", salary: 60000, city: "Pune" };
+        const empMumbai = { name: "Johnson", post: "Manager", salary: 80000, city: "Mumbai" };
+
+        function mergeObjects() {
+            const mergedEmployee = [ empPune,empMumbai ]; 
+            document.getElementById("output").innerText = "Merged Employee: " + JSON.stringify(mergedEmployee);
+        }
+    </script>
+</body>
+</html>

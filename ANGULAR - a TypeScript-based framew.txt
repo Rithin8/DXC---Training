@@ -1,0 +1,173 @@
+ANGULAR - a TypeScript-based framework developed by Google for building single-page web applications (SPAs). 
+	
+	>Single Page Applications (SPA): It is designed to build SPAs, which dynamically update 	the content without reloading the entire page.
+
+	>Scalable Applications: Angular is ideal for creating large-scale, complex applications.
+
+	>TypeScript-Based: It uses TypeScript, which allows for compile-time checking and 	better error handling.
+
+	>Two-Way Data Binding: Angular supports two-way data binding
+
+	>TypeScript enforce strict typing. 
+
+In Java Script  variables are not bound to a specific data type. A variable can hold values of any type, and its type can change at runtime.easy to use but can lead to unexpected behavior
+ 
+React:library not a framework SPA small project javascript(run time)  unidiractional(one way)
+
+FEATURES ; 
+Component-Based Architecture
+	Applications are built using components, which are reusable, modular, and focused 	on specific functionality.
+
+Dependency Injection (DI)
+Angular’s built-in DI system improves code reusability and testability by injecting required services into components.
+
+ Routing
+Angular provides a powerful router module to define and manage navigation within Single Page Applications (SPAs).
+
+
+open command prompt 
+	CHECK VERSION -  node-v
+	CHECK NPM VERSION - npm-v
+	INSTALL ANGULAR- npm install -g@angular/cli
+	ANGULAR VERSION	- ng version
+	NEW PROJECT -. ng new applicationName(projectname)
+	eg: ng new angular demo
+	CREATE DIRECTORY -. dir
+	CHANGE DIRECTORY - . cd application name
+	10. ng serve (to run the application)
+	11. ctrl+c or q (to exit the application)
+	12. ng build (to deploy. it will create one dist folder which contains index.html)
+	13. ng test (for unit Test)
+	14. ng e2e (for end to end testing)
+
+NODE.js - an open-source, cross-platform, JavaScript runtime environment that allows developers to run JavaScript on the server side.
+				
+				open command prompt 
+	3. node-v
+	4. npm-v
+	5. npm install -g@angular/cli
+	6. ng version
+	7. ng new applicationName(projectname)
+	eg: ng new angular demo
+
+LIFECYCLE -  series of phases a component, goes through during its existence in an application.the lifecycle defines the process from creation to destruction of a component 
+
+ lifecycle ensures that your component behaves correctly during its lifetime. It includes specific lifecycle hooks, which are methods you can implement to execute code at particular stages.
+
+Creation - Angular instantiates the component and sets its input properties.
+	constructor and ngOnInit
+
+Change Detection- Angular detects changes in the component's data or input-bound properties and updates the view accordingly.
+	ngOnChanges and ngDoCheck
+
+RENDERING - process of displaying content on the screen. Specifically, in Angular or similar frameworks, rendering involves converting your component's logic and template (HTML + data) into the visible user interface (UI) that users interact with in the browser
+
+Rendering - Angular initializes and renders the component's template and its child views..
+	ngAfterContentInit, ngAfterContentChecked, ngAfterViewInit, and ngAfterViewChecked
+
+Destruction - When the component is no longer needed, Angular removes it from the DOM and cleans up resources.
+		ngOnDestroy 
+
+>> Forms Module - used because supports two way binding so we can give user inputs
+		
+<input type="text"  name="username" [(ngModel)]="username" placeholder="Enter your name">
+  <p>Hello, {{username}}</p>
+
+component.ts -	username: string="";
+
+>>  CommonModule - ngIf -ngFor - ngClass - ngStyle
+	<button (click)="showMessage()">click me</button>
+ 	 <p *ngIf=isButtonClicked >{{msg}}</p>
+  	
+components.ts -isButtonClicked: boolean =false;
+  				msg: string="before button click";
+  				showMessage()
+  				{
+    			this.msg="you clicked me";
+    			this.isButtonClicked=true;
+  				}
+
+>> To use an array - We create an array in the ts file
+					  name=["aaa","bbb","ccc","ddd","eee"];
+			
+					use it on html file
+					<ul>
+  					  <li *ngFor="let i of name">{{i}}</li>
+					  </ul>
+
+>> The parent component defines a property name, which is bound to the input field. This value is passed to the child component through the [childName]="name" binding. 
+
+The child receives this value in its @Input() property childName.
+
+>> PIPE - a feature that allows you to transform data in the template before it is displayed to the user.
+	Implements the PipeTransform interface.
+	It has a method called transform()
+	To create-  @Pipe() decorator
+transform(value: any, ...args: any[]): any
+
+>> power pipe - <div>Power pipe 2^3 =  {{2 | power:3}}</div>
+In pipe - transform(num: number, default value): number(return)
+
+>> reverse pipe - <p>{{"JavaScript" | reverse}}</p>
+ In pipe -  if(typeof value === 'string'){
+      return value.split('').reverse().join('');
+    }else if(Array.isArray(value)){
+      return value.reverse();
+
+>> example of json pipe : <pre *ngFor="let person of persons">{{person | json}}</pre>
+
+ANGULAR MATERIAL :Angular Material is a UI component library designed by google which can use for designing and making responsive interffaces
+
+Components: Buttons and indicators -Buttons, Checkboxes, Radio Buttons, P
+			  Naviagation Components -Toolbar, Sidenav, Menu, Tabs, and Pagination.
+			 Layout -Grid List, List,
+			Form controls
+
+To use angular material - ng add @angular/material
+		import { MatButtonModule } from '@angular/material/button';
+		import { MatToolbarModule } from '@angular/material/toolbar';
+
+SERVICES - it is use to share data, functions with the multiple component thus saving storage
+
+	ng generate service services/servicename
+
+Usage - we use constructor ,getter and setter methods,
+
+To call in other components - import dataservice
+ within the constructor we pass dataservice
+
+<router-outlet> - It dynamically loads the component corresponding to the current route.
+
+FORMS - used for creating forms like structure
+TYPES- Template-Driven Forms,Reactive Forms
+
+>> Template-Driven Forms (Simple Forms):
+		Import FormsModule in app.module.ts
+		Use ngModel to bind form controls
+	Use #referenceVariable to access form data
+EG :   EmailId : <input type="text"  required [(ngModel)]="emailid"  email name="name"  #name="ngModel" placeholder="Enter your email id">
+
+>> Reactive Forms (More Powerful):
+		Import FormControl, FormGroup, ReactiveFormsModule, Validators
+		Create a FormGroup in the component
+		Bind it to the template with formControlName
+		ngsubmit - to submit all the details
+		checking - is invalid
+EG:  username: new FormControl('', [Validators.required, Validators.pattern("[A-Z]+"),Validators.maxLength(8)]),
+
+
+>>ROUTING - Routing in Angular allows you to navigate between different components of your application. 
+
+						const routes: Routes = [
+ 						 { path: '', component: HomeComponent }, 	
+To create a link - <a routerLink="/">Home</a>
+To load the angular components - <router-outlet>
+
+>>Lazy loading loads modules only when they are needed, improving performance.
+
+loadComponent: ()=>import('component name').then(m=> m.Component)
+
+>> Angular Route Guards help protect routes.They prevent users from accessing certain routes unless specific conditions are met.
+			
+				canActivate: [Guard name]
+

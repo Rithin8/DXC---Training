@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //call which is used to call a function immediately.
+      /*     const person={name:"Rithin", city:"Mumbai"};
+           function greet(msg){
+             console.log(msg+" "+this.name);
+         }
+             greet.call(person,"Hello Good Morning"); //binding of data +calling of function
+             greet();
+ 
+ 
+ 
+        //bind is used to bind the data with function and later on we can call.
+ 
+        const person={name:"Rithin", city:"Mumbai"};
+        function greet(msg){
+            console.log(msg+" "+this.name);
+        }
+        var boundGreet=greet.bind(person,"Hello Good Morning");//only binding call later as per requirment
+ 
+        boundGreet();   
+ 
+        //Apply pass data in form of array
+ 
+        const person1={name:"Rithin", city:"Mumbai"};
+ 
+        function introduction(age,email){
+            console.log("Name: "+this.name+" City: "+this.city+" Age : "+age," Email : "+email)
+        }
+        introduction.apply(person1,[20,"abc@gmail.com"]);*/
+ 
+ 
+        //spread operator ... array
+
+        const arr1=[1,2,3,"rithin"];
+        const copy=[...arr1];
+        console.log("Actual array : "+arr1);
+       
+        console.log("Copy of array : " +copy.reverse());
+ 
+        const arr2=[4,5,6];
+        const merge=[...arr1,...arr2];
+        console.log("Marge of arr1 and arr2 : "+merge);
+ 
+        console.log("Greatest number in merge : "+Math.max(...merge));
+        console.log("Min number in merge : "+Math.min(...merge));
+ 
+        //object using spread operator
+ 
+        const ob1={name:"Laxminarayan" ,city:"Pune"};
+        const copy1={...ob1};
+        console.log("actual : "+ob1.city);
+        console.log("copy : "+copy1.city);
+ 
+        const ob2={age:20};
+        const merge1={...ob1,...ob2};
+        console.log("merge : "+merge1.name,merge1.age);
+ 
+        const str="Rithin Johnson";
+        const charArray=[...str];
+        console.log(charArray);
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+        </script>
+</body>
+</html>
+ 

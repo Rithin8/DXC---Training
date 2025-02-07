@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var num =[1,2,5,10,7,3,13,2,"mom"];
+   // console.log(num);
+    //console.log("length of array : "+num.length);
+    //console.log("sort  : "+num.sort(function(a,b){return b-a;}));
+    //console.log("Reverse () : "+num.reverse());
+    //console.log("toString : "+num.toString());
+    // console.log ("push : "+num.push(3));//last
+    //console.log("after push 3 in array"+num);
+    //console.log("pop element : "+num.pop());//last
+    //console.log("after pop the last element from array"+num);
+    //console.log("unshift 15 "+num.unshift(15));//front
+    //console.log("after unshift 15 in array"+num);
+    //console.log("shift element from the array "+num.shift());//front
+    //console.log("after shift from the  array"+num);
+    console.log("sorting the array:"+num.toSorted(function(a,b){return a-b;}) );
+    console.log("reversing is done:" +num.toReversed(function(a,b){return b-a;}));
+   /* num[0]=18; //overlaping or replace the element with new one.
+   console.log("after adding element  18 at 0th index in array"+num);
+   num.push(100);
+   console.log("before sorting : "+num);
+  console.log("after sorting "+num.sort());
+
+  console.log("after sorting with function "+num.sort(function(a,b){return a-b;}));*/
+</script>
+
+
+</body>
+</html>

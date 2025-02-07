@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>disappointingProduct</title>
+    <div id="product">product</div>
+</head>
+<body>
+    <script>
+        const fetchdata = async () => {
+            try {
+                const response = await fetch("https://dummyjson.com/products");
+                const data = await response.json(); 
+
+                let dP = null;
+
+                for (const product of data.products) {
+              
+                    for (const review of product.reviews) {
+                        
+                        if (review.comment.toLowerCase().includes("very disappointed!")) {
+                            dP = product;
+                            break; 
+                        }
+                    }
+                    if (dP) break; // Break outer loop if a product is found
+                }
+
+                const dis = document.getElementById("product");
+
+                if (dP) {
+                    dis.innerText = "Product with the comment 'Disappointing product:" +dP.title;
+                } else {
+                    dis.innerText = "No product found with the comment 'Disappointing product";
+                }
+            } catch (error) {
+                console.error("Error got: ", error);
+            } 
+        };
+
+        fetchdata();
+    </script>
+</body>
+</html>
+

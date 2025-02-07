@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="f1()">leapyear</button>
+ 
+    <script>
+        function f1(){
+        var a=2004;
+        if(a%400==0)
+        console.log("Leap Year");
+        else if(a%4==0 && a%100!=0)
+        console.log("Leap Year");
+        else
+        console.log("Not a leap year")
+    /*var b=1;
+    switch(b){
+        case 1:
+            console.log("First case");
+            break;
+        case 2:
+            console.log("2");
+            break;
+ 
+        default :
+            console.log("default called");
+    }*/
+}
+    </script>
+</body>
+</html>
+ 

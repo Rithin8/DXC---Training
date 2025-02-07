@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Image</title>
+</head>
+<body>
+    <h1>Product: Dior J'adore</h1>
+    <div id="product-image">
+    <div id="product-details">
+    </div>
+
+    <script>
+        const fetchImage = async () => {
+            try {
+               
+                const response = await fetch("https://dummyjson.com/products");
+                const data = await response.json(); 
+                 let Product =0;
+                
+                     for (let i = 0; i < data.products.length; i++) {
+                    const product = data.products[i];
+
+                    if (product.title === "Dior J'adore") {
+                        Product = product;
+                        break; 
+                        
+                    }
+                }
+
+                if (Product) {
+                    const img = document.createElement("img");
+                    img.src = Product.thumbnail;   
+                    img.alt=Product.title
+                    document.getElementById("product-image").appendChild(img);
+                    
+                } else {
+                    console.log("Product 'Dior J'adore' not found");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+        fetchImage();
+    </script>
+</body>
+</html>

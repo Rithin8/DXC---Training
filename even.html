@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>even</title>
+</head>
+<body>
+    <script>
+        const evennum = (num) => {
+          var even = [];
+          for (var i = 0; i < num.length; i++) {
+            if (num[i] % 2 === 0) {
+              even.push(num[i]); 
+            }
+          }
+          return even ;
+        };
+      
+        const nums = [3, 7, 1, 9, 2, 20,8];
+        console.log("The even numbers in the array are: " + evennum(nums)); 
+      </script>
+      
+</body>
+</html>

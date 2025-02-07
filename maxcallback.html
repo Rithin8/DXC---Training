@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maxcallback</title>
+</head>
+<body>
+    <script>
+      function Value(nums, callback) {
+    var max = nums[0]; 
+    for (var i = 1; i < nums.length; i++) {
+        if (nums[i] > max) {
+            max = nums[i]; 
+        }
+    }
+    callback (max); 
+}
+const nums = [3, 7, 1, 9, 2, 20];
+function MaxValue(max) {
+    console.log("The maximum value in the array is: " + max);
+}
+    Value(nums, MaxValue);
+
+
+    </script>
+</body>
+</html>

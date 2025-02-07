@@ -1,0 +1,155 @@
+Java Script : JavaScript is a programming language used to make websites interactive. It works with HTML and CSS to add features like buttons, animations, pop-ups, 
+
+To use JavaScript -  you use the <script> tag.
+ The <script> tag can be placed in the <head> or <body> section of the HTML document, or 
+You can link to an external JavaScript file using the "src attribute".
+
+THE ONCLICK : is used in HTML to execute a JavaScript function or code when a user clicks on an element. It is commonly applied to buttons, links, and other interactive elements.
+<element onclick="JavaScriptCode"></element>
+
+FUNCTION KEYWORD : define a function. A function is a block of reusable code designed to perform a particular task. 
+You can call the function whenever needed, which helps avoid repetition of code.
+--function functionName(parameters)
+
+alert() : used to display a simple message in a popup dialog box. It is often used for debugging or showing information to the user. 
+When called, it creates a modal window with a specified message and an "OK" button for the user to dismiss the alert.
+--alert(message);
+
+
+ prompt() : used to display a dialog box that asks the user for input. It can capture the user's response and return it as a string. The dialog box contains a text field where the user can type a response and an "OK" or "Cancel" button.
+--let userInput = prompt(message, defaultValue);
+
+DATATYPES:
+var - any type of value can be given ,overlapping is possible 
+HOISTING(only var) - that JS gives priority to variable creations,get 'undefined' when run meaning variable is created bt not defined
+
+let - same as var but does not support Hoisting
+error- cannot access before initialization
+
+constant - reinitialization not possible,once intialized its constant
+
+LOOPS
+if-else
+switch cases
+
+FOR IN -returns index of the array
+ for(let x in person)
+
+FOR OF- returns the value
+for (let fruit of fruits)
+
+PREDEFINED METHODS
+
+.length - to know length of array							.push-add element at the last
+.sort - to sort array										.pop-remove element from the last
+.reverse - to reverse array								.unshift-add element at first
+.to string-converts to string								.shift -remove element from first
+
+num[0]=18 ; replaces the element with newone
+Sort cheks for index thus the sorting will not be proper so we pass function within it
+--console.log("sorting the array:"+num.toSorted(function(a,b){return a-b;}) );
+
+TYPES OF FUNCTION;
+
+1.Named function- Has specific name,which can be used to call
+         
+	  function greet(name){
+           return "Hello "+name;
+         console.log("Named function called : "+greet("Ashwini"));
+        }
+
+2.Anonymous function - does not have a name. used in situations where a function is passed as an argument, assigned to a variable, or used immediately.
+
+		var greet2=function(name){
+            	return "Hello "+name;
+
+3.Arrow Function - a concise way to write functions using the => (arrow) syntax.  used for shorter and more readable code, especially with callbacks and one-liner functions.
+
+	const greet3=(name)=>"Hello "+name;
+        console.log("Arrow function called : "+greet3("Ajay"));*/
+
+4. Immediatly Invoked Function ( IIFE)-  executed immediately after it is defined. 
+
+	(function() {
+    // Code to execute immediately
+	})();
+
+5.Constructor Function -  used to create and initialize objects.
+this keyword - refers object being created
+
+	function Person(name, age) {
+    	this.name = name;
+	const person1 = new Person("Alice", 25);
+	console.log(person1.name); 
+
+6.Callback Function - that is passed as an argument to another function and is executed after the completion of that function.
+	
+	function mainFunction(callback) {
+    	// Some code
+   	 callback(); // Call the callback function
+
+7.Recursive Function - A recursive function is a function that calls itself to solve a problem.
+
+	function fact(n){
+            return n===0?1:n*fact(n-1);
+
+CALL BIND APPLY :
+
+Call - used to call a function immediately,binding &calling takes places together
+	const person={name:"Rithin", city:"Mumbai"};
+	greet.call(person,"Hello Good Morning");
+
+Bind - used to bind data with data,later we can call the function
+	greet.bind(person,"Hello Good Morning")
+
+Apply - Similar to call, but arguments are passed as an array
+	const person1={name:"Rithin", city:"Mumbai"};
+
+SPREAD OPERATOR: simplifies many operations in JavaScript.
+	const copy=[...arr1];
+	const merge=[...arr1,...arr2];
+	console.log("Greatest number in merge : "+Math.max(...merge)
+	 console.log("copy : "+copy1.city);
+	 const charArray=[...str];
+        console.log(charArray);
+
+GLOBAL VARIABLE : Variable defined  without any datatype(var,const,let) then it becomes global meaning can use it outside the function also
+inner :f1();
+        console.log("before function creation value of a : "+a);
+       	function f1(){
+             a=5; 
+
+outer:  var b=10;
+            function inner()
+            {
+                 console.log("value of b : "+b);
+
+SET TIME OUT: Delay a function/task -   setTimeout(()=>{ function},5000);
+SET INTERVAL :Execute Task repeatedly - setInterval(()=>{ function},1000);
+Use clearInterval() to stop.
+
+ASYNCHRONOUS : allows certain tasks to run in the background while the program continues executing other code.
+
+PROMISE - myPromise=new Promise(function(resolve,reject)
+	If condition true = resolve runs
+	if condition false/error = reject runs
+	 myPromise.then -  To print
+
+AWAIT - similar to promise but it waits till the fetching operation is done
+	const fetchdata=async()=>{
+	   try{
+                const response =await  fetch("https://dummyjson.com/products");
+                const data=await response.json();
+		 catch(error){
+
+Dummy JSON refers to mock JSON data used for testing purposes. 
+		fetch("https://dummyjson.com/products")
+        .then((response)=>
+      			  {if(!response.ok){ 		- If response not ok
+            throw new Error("url is wrong");
+        }
+        return response.json();			-if ok 
+    })
+	then((data)=>{
+        console.log("Data recived first row : "+JSON.stringify(data.products[0].title));
+

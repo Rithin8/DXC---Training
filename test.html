@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        #stopwatch {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Stopwatch</h1>
+    <div id="stopwatch">00:00:00</div>
+    
+    <button id="startBtn">Start</button>
+    <button id="stopBtn" disabled>Stop</button>
+    <button id="resetBtn">Reset</button>
+
+    <script>
+        let hours = 0, minutes = 0, seconds = 0;
+        let timer;
+
+        // Function to update the stopwatch display
+        function updateStopwatch() {
+            const timeString = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+            document.getElementById('stopwatch').innerText = timeString;
+        }
+
+        // Function to add leading zeros if the number is less than 10
+        function padZero(num) {
+            return num < 10 ? '0' + num : num;
+        }
+
+        // Start the stopwatch
+        function startStopwatch() {
+            timer = setInterval(function() {
+                seconds++; // Increase the seconds
+                if (seconds === 60) { // If 60 seconds, reset seconds and increment minutes
+                    seconds = 0;
+                    minutes++;
+                }
+                if (minutes === 60) { // If 60 minutes, reset minutes and increment hours
+                    minutes = 0;
+                    hours++;
+                }
+                updateStopwatch(); // Update the stopwatch display
+            }, 1000);
+        }
+
+        // Stop the stopwatch
+        function stopStopwatch() {
+            clearInterval(timer); // Clear the interval to stop the stopwatch
+        }
+
+        // Reset the stopwatch
+        function resetStopwatch() {
+            clearInterval(timer); // Clear the interval if running
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+            updateStopwatch(); // Reset the display to 00:00:00
+        }
+
+        // Button event listeners
+        document.getElementById('startBtn').addEventListener('click', function() {
+            startStopwatch();
+            document.getElementById('startBtn').disabled = true; // Disable start button
+            document.getElementById('stopBtn').disabled = false; // Enable stop button
+        });
+
+        document.getElementById('stopBtn').addEventListener('click', function() {
+            stopStopwatch();
+            document.getElementById('startBtn').disabled = false; // Enable start button
+            document.getElementById('stopBtn').disabled = true; // Disable stop button
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            resetStopwatch();
+            document.getElementById('startBtn').disabled = false; // Enable start button
+            document.getElementById('stopBtn').disabled = true; // Disable stop button
+        });
+    </script>
+
+</body>
+</html>

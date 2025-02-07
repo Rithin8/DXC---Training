@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="f1()">for demo</button>
+    <script>
+        var name=["Rithin","Johnson","Coimbatore"];
+        var textIn="";
+        var textOf="";
+        function f1()
+        {
+            for(let x in name)
+        {
+            textIn +=x + " ";// use name[x] to print the value
+        }
+        for(let x of name)
+        {
+            textOf +=x + " ";
+        }
+        console.log(textIn);
+        console.log(textOf);
+       
+        // for(var i=1;i<=5;i++){
+            //     console.log(i);
+            // }
+ 
+ 
+ 
+        }
+    </script>
+</body>
+</html>
+ 

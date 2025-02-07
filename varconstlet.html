@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function var1(){
+           
+           // console.log("var: before creation: "+x); // undefined
+            x=15; //HOISTING
+           // console.log("var :before creation but value assigned : "+x); //15
+            var x=10;
+           // console.log("var :aFTER CREATION :"+x);//10
+            x=20;
+            console.log("reIntilisation: :"+x);//10
+           
+        }
+        function let1(){
+           
+            //console.log("before creation: "+x); // undefined
+             x=15; 
+            console.log("before creation but value assigned : "+x); //15
+            let x=10;
+            console.log("let : aFTER CREATION :"+x);//10
+            x="hello";
+            console.log("reIntilisation: :"+x);//10
+ 
+        }
+        function const1(){
+           
+            //console.log("before creation: "+x); // undefined
+            x=15; //not possible HOISTING
+            console.log("before creation but value assigned : "+x); //15
+            const x=10;
+            console.log("aFTER CREATION :"+x);//10
+            //x=20;
+            //console.log("const : reIntilisation:"+x);//10
+ 
+        }
+ 
+    </script>
+</head>
+<body>
+    <button onclick="var1()">var</button>
+    <button onclick="let1()">let</button>
+ 
+    <button onclick="const1()">const</button>
+ 
+</body>
+</html>
+ 
